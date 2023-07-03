@@ -6,7 +6,7 @@
 /*   By: alejarod <alejarod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 21:33:58 by alejarod          #+#    #+#             */
-/*   Updated: 2023/07/03 20:45:00 by alejarod         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:54:19 by alejarod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,25 @@
 
 #include <stdio.h>
 
+// needed for printing hex and num
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-/*
-compute the number of digits
-*/
+//compute the number of digits
 int	ft_intlen(unsigned int n)
 {
-	int len = 1;	// start in 1 in case there is a single digit
-	while (n >= 10)
+	int len = 1;		// start in 1 for 1 digit case
+	while (n >= 10)		// loop to count digits!!!
 	{
 		n = n / 10;
 		len++;
 	}
 	return (len);
 }
-
+// same as above but with 16
 int	ft_un_intlen(unsigned int hex)
 {
 	int	len_hex = 1;
@@ -76,8 +75,8 @@ int	ft_putstr(char *str)
 	b. add 1 to len_nbr
 	c. convert to +
 3. calculate len of number
-4. if > 9 recursive
-5. Write the digits 1 by 1
+4. if >= 10 recursive (recursive no loop!!)
+5. Write the digits 1 by 1, with module, converting to char
 */
 int ft_putnbr(int n)
 {
@@ -96,7 +95,7 @@ int ft_putnbr(int n)
 		len_nbr++;
 	}
 	len_nbr += ft_intlen(n);	// count the number of digits
-	if (n >= 10)
+	if (n >= 10)				// recursive no loop!
 		ft_putnbr(n / 10);
 	ft_putchar((n % 10) + 48);	// one char at a time
 	return (len_nbr);
@@ -107,15 +106,14 @@ int	ft_puthex(unsigned int hex)
 	int	len_hex = 0;
 	
 	len_hex += ft_un_intlen(hex);
-	if (hex >= 16)
+	if (hex >= 16)		// recursive no loop
 		ft_puthex(hex / 16);
 	ft_putchar("0123456789abcdef"[hex % 16]);
 	return (len_hex);	
 }
 
-/*
-check the char type and pass it. len+=
-*/
+
+//check the char type and pass it. len+=
 int	ft_format(char c, int len, va_list args)
 {
 	if (c == 's')
