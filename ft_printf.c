@@ -6,7 +6,7 @@
 /*   By: alejarod <alejarod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 21:33:58 by alejarod          #+#    #+#             */
-/*   Updated: 2023/07/03 21:00:20 by alejarod         ###   ########.fr       */
+/*   Updated: 2023/07/03 21:22:22 by alejarod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int ft_putnbr(int n)
 	return (len_nbr);
 }
 
+
+// hex is unsigned
 int	ft_puthex(unsigned int hex)
 {
 	int	len_hex = 0;
@@ -108,7 +110,7 @@ int	ft_puthex(unsigned int hex)
 	len_hex += ft_un_intlen(hex);
 	if (hex >= 16)		// recursive no loop
 		ft_puthex(hex / 16);
-	ft_putchar("0123456789abcdef"[hex % 16]);
+	ft_putchar("0123456789abcdef"[hex % 16]);	// this formula
 	return (len_hex);	
 }
 
