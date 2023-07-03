@@ -6,7 +6,7 @@
 /*   By: alejarod <alejarod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 21:33:58 by alejarod          #+#    #+#             */
-/*   Updated: 2023/07/03 20:54:19 by alejarod         ###   ########.fr       */
+/*   Updated: 2023/07/03 21:00:20 by alejarod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-/* int	main(void)
+int	main(void)
 {
 	char *str = "(null)Alex";
 	int n = INT_MAX;
@@ -178,8 +178,6 @@ int	ft_printf(const char *str, ...)
 	int or_bytes;
 	int	my_bytes;
 
-	//printf("%d\n", INT_MIN);
-
 	// write exactly the same string, only vary the bytes to check result
 	my_bytes = ft_printf("result is |||%s|||, |||%d|||, |||%x|||\n", str, n, hex);	
 	or_bytes =    printf("result is |||%s|||, |||%d|||, |||%x|||\n", str, n, hex);
@@ -187,4 +185,4 @@ int	ft_printf(const char *str, ...)
 	printf("my bytes are: %d\n", my_bytes);
 	printf("or bytes are: %d\n", or_bytes);
 	return (0);
-} */
+}
