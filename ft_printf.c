@@ -6,7 +6,7 @@
 /*   By: alejarod <alejarod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 21:33:58 by alejarod          #+#    #+#             */
-/*   Updated: 2023/07/03 21:22:22 by alejarod         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:31:10 by alejarod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,14 +139,12 @@ step 1. declare, start and end the va_list
 step 2. loop the string until we find a %
 
 remember:
-declare: va_list <list_name>;
+declare: 	va_list <list_name>;
 ft-start:	va_start(<list_name>, <first_data_type>)
 ft-next:	va_arg(<list_name>, <next_data_type>)
 ft-end		va_end(<list_name>)
 
-//only len = in this one, the rest is +=
 */
-
 //DUDA SI PUEDO PONER str??? subject dice solamente (const char *, ...)
 int	ft_printf(const char *str, ...)
 {
@@ -163,7 +161,7 @@ int	ft_printf(const char *str, ...)
 			write(1, &str[i], 1);
 			len++;
 		}
-		else
+		else									  // only len = in this one, the rest is +=
 			len = ft_format(str[++i], len, args); // need ++i to skip the char of the variable and not write it
 		i++;
 	}
